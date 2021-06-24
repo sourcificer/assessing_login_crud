@@ -1,0 +1,26 @@
+{
+  "name": "login_crud_insvestigation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "knex": "^0.21.19",
+    "nodemon": "^2.0.7",
+    "objection": "^2.2.15",
+    "pg": "^8.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.29.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.4",
+    "prettier": "2.3.1"
+  }
+}
