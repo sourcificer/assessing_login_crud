@@ -1,19 +1,18 @@
 const express = require('express');
-const notesModel = require('./Notes.model');
+const Notes = require('./Notes.model');
 
 const router = express.Router();
 
-// display all notes
+// * display all notes
 router.get('/', async (req, res) => {
-  const allNotes = await notesModel.query();
+  const allNotes = await Notes.query();
   res.json(allNotes);
 });
 
-// display a specific note
+// * display a specific note
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
-  const requestedNote = await notesModel.query().findById(id);
-  console.log(requestedNote);
+  const requestedNote = await Notes.query().findById(id);
   if (requestedNote !== undefined) {
     res.status(200).json(requestedNote);
   } else {
@@ -21,14 +20,12 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// insert a note
+// * insert a note
 router.post('/', async (req, res) => {
   const { note_content: noteContent } = req.body;
-  console.log(noteContent);
-  const notesObj = notesModel.query().insert({
+  const notesObj = Notes.query().insert({
     content: noteContent,
   });
-  console.log(notesObj.content === noteContent);
   if (notesObj.content === noteContent && noteContent !== undefined) {
     res.status(200).json('inserted successfully');
   } else {
@@ -36,14 +33,13 @@ router.post('/', async (req, res) => {
   }
 });
 
-// update a specific note
+// * update a specific note
 router.patch('/:id', async (req, res) => {
   const { id } = req.params;
   const { note_content: noteContent } = req.body;
-  const requestedNote = await notesModel.query().findById(id).patch({
+  const requestedNote = await Notes.query().findById(id).patch({
     content: noteContent,
   });
-  console.log(requestedNote);
   if (requestedNote === 1) {
     res.status(200).json('udpated successfully');
   } else {
@@ -51,10 +47,10 @@ router.patch('/:id', async (req, res) => {
   }
 });
 
-// delete a note
+// * delete a specific note
 router.delete('/:id', async (req, res) => {
   const { id } = req.params;
-  const deletedNote = await notesModel.query().deleteById(id);
+  const deletedNote = await Notes.query().deleteById(id);
   if (deletedNote === 1) {
     res.status(200).json('note deleted successfully');
   } else {

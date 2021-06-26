@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const dbSetup = require('./dbSetup');
 const notes = require('./Notes.controller');
+const users = require('./Users.controller');
 
 dbSetup();
 
@@ -16,5 +17,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/notes', notes);
+
+app.use('/users', users);
 
 app.listen(port, () => console.log(`listenning at port ${port}`));
