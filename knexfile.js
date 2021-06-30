@@ -1,8 +1,5 @@
 require('dotenv').config();
-// const pg = require('pg');
 const { knexSnakeCaseMappers } = require('objection');
-
-// pg.defaults.ssl = true;
 
 module.exports = {
   development: {

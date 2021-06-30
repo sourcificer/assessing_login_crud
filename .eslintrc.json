@@ -8,13 +8,22 @@
         "prettier",
         "airbnb-base"
     ],
-    "plugins": ["prettier"],
+    "plugins": [
+        "prettier"
+    ],
     "parserOptions": {
         "ecmaVersion": 12
     },
     "rules": {
-        "no-console": [0],
-        "semi": [2, "always"],
-        "prettier/prettier": ["error"]
+        "no-console": [
+            0
+        ],
+        "semi": [
+            2,
+            "always"
+        ],
+        "prettier/prettier": [
+            "error"
+        ]
     }
 }

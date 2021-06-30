@@ -1,18 +1,27 @@
 {
-  "name": "login_crud_insvestigation",
+  "name": "assessing_login_crud",
   "version": "1.0.0",
-  "description": "",
+  "description": "Just a simple login_crud application using node/express/postgres to assess how the login and authentication system works.",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "express",
+    "node",
+    "crud",
+    "login",
+    "postgres",
+    "objection",
+    "knex"
+  ],
+  "author": "sourcificer",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "knex": "^0.21.19",
     "nodemon": "^2.0.7",
     "objection": "^2.2.15",
