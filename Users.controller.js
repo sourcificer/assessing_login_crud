@@ -4,12 +4,6 @@ const Users = require('./Users.model');
 
 const router = express.Router();
 
-// * display all users
-// router.get('/', async (req, res) => {
-//   const allUsers = await Users.query();
-//   res.status(200).json(allUsers);
-// });
-
 // * validate a specific user
 router.post('/validate', async (req, res) => {
   const { username: userName, password } = req.body;
