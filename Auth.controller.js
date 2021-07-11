@@ -1,4 +1,3 @@
-require('dotenv').config();
 const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -11,7 +10,7 @@ function generateAccessToken(userId, userName) {
     { id: userId, username: userName },
     process.env.TOKEN_SECRET,
     {
-      expiresIn: '2000ms',
+      expiresIn: '90000s',
       // eslint-disable-next-line prettier/prettier
     },
   );

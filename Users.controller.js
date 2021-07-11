@@ -5,10 +5,10 @@ const Users = require('./Users.model');
 const router = express.Router();
 
 // * display all users
-router.get('/', async (req, res) => {
-  const allUsers = await Users.query();
-  res.status(200).json(allUsers);
-});
+// router.get('/', async (req, res) => {
+//   const allUsers = await Users.query();
+//   res.status(200).json(allUsers);
+// });
 
 // * validate a specific user
 router.post('/validate', async (req, res) => {
@@ -22,6 +22,14 @@ router.post('/validate', async (req, res) => {
   } else {
     res.status(403).json('unauthorized');
   }
+});
+
+// * get logged in user's information
+router.get('/me', (req, res) => {
+  const userObj = req.user;
+  res.status(200).json({
+    username: userObj.username,
+  });
 });
 
 module.exports = router;
