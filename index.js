@@ -1,12 +1,12 @@
 require('dotenv').config();
 const express = require('express');
 const dbSetup = require('./dbSetup');
-const notes = require('./Notes.controller');
-const users = require('./Users.controller');
-const auth = require('./Auth.controller');
-const authenticateToken = require('./Auth.middleware');
+const notes = require('./controllers/Notes');
+const users = require('./controllers/Users');
+const auth = require('./controllers/Auth');
+const authenticateToken = require('./middleware/Auth');
 // * to delete later
-const Users = require('./Users.model');
+const Users = require('./models/Users');
 
 dbSetup();
 
