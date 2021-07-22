@@ -14,7 +14,7 @@ const app = express();
 const port = process.env.API_PORT;
 
 app.use(express.json());
-app.use(/\/((?!usersAll|auth\/createuser).)*/, authenticateToken);
+app.use(/\/((?!user-all|auth\/createuser|\/).)*/, authenticateToken);
 
 // eslint-disable-next-line no-unused-vars
 app.get('/', (req, res) => {
@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 });
 
 // * to delete later
-app.get('/usersAll/', async (req, res) => {
+app.get('/user-all/', async (req, res) => {
   const allUsers = await Users.query();
   res.status(200).json(allUsers);
 });
