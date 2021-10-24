@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
   res.status(200).json('Welcome to the home page');
 });
 
-// * to delete later
+// ! to delete later
 app.get('/user-all/', async (req, res) => {
   const allUsers = await Users.query();
   res.status(200).json(allUsers);
