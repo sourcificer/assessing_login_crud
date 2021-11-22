@@ -35,4 +35,26 @@ router.post('/createuser', async (req, res) => {
   res.status(200).json(token);
 });
 
+router.post('/login', async (req, res) => {
+  const { username: userName, password } = req.body;
+  const userExists = await Users.query().findOne({
+    username: userName,
+  });
+  if (userExists === undefined) {
+    res.status(401).json('Username or password incorrect.');
+    return 'Username or password incorrect';
+  }
+
+  const passwordCheck = await bcrypt.compare(password, userExists.password);
+  console.log(passwordCheck);
+  if (passwordCheck === true) {
+    const token = generateAccessToken(userExists.id, userExists.username);
+    res.status(200).json(token);
+  } else {
+    res.status(401).json('Username or password incorrect.');
+    return 'Username or password incorrect';
+  }
+  return '';
+});
+
 module.exports = router;

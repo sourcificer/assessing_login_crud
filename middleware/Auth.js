@@ -8,8 +8,6 @@ function authenticateToken(req, res, next) {
 
   // eslint-disable-next-line consistent-return
   jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {
-    console.log(err);
-    if (err) return res.status(403);
     console.log(user);
     req.user = user;
     next();
